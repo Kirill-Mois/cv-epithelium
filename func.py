@@ -54,7 +54,7 @@ def get_contours(image):
 
 def get_artefacts(image):
     original_img = np.array(image.convert('RGB'))
-    mean_shift = cv2.pyrMeanShiftFiltering(original_img, 32, 64, 2)
+    mean_shift = cv2.pyrMeanShiftFiltering(original_img, 30, 60, 3)
     # gray_mean_shift = cv2.cvtColor(mean_shift, cv2.COLOR_BGR2GRAY)
-    # _, bin_mean_shift = cv2.threshold(gray_mean_shift, 64, 255, cv2.THRESH_BINARY)
+    # _, bin_mean_shift = cv2.threshold(gray_mean_shift, 60, 255, cv2.THRESH_BINARY)
     return mean_shift # bin_mean_shift
