@@ -10,7 +10,7 @@ if image_file is not None:
     epit_img = Image.open(image_file)
     st.image(image_file)
 
-    color_check = st.checkbox("Выделение площади краного цвета")
+    color_check = st.checkbox("Выделение площади краcного цвета")
     contours_check = st.checkbox("Поиск контуров")
     artefacts_check = st.checkbox("Артефакты")
 
@@ -26,13 +26,7 @@ if image_file is not None:
                            f'{k * (int(get_scale) ** 2) / (int(get_resolution) ** 2)} мкм^2\n')
     if contours_check:
         st.title("Контуры")
-        st.text("Поиск контуров...")
         st.image(func.get_contours(epit_img=epit_img))
     if artefacts_check:
         st.title("Артефакты")
-        st.text("Поиск артефактов...")
-        st.image(func.mean_shift(epit_img=epit_img))
-
-
-
-
+        st.image(func.get_artefacts(epit_img=epit_img))
