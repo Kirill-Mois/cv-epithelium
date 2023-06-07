@@ -26,7 +26,7 @@ if image_file is not None:
                            f'{k * (int(get_scale) ** 2) / (int(get_resolution) ** 2)} мкм^2\n')
     if contours_check:
         st.title("Контуры")
-        st.image(func.get_contours(epit_img=epit_img))
+        st.image(func.get_contours(epit_img))
     if artefacts_check:
         st.title("Артефакты")
-        st.image(func.get_artefacts(epit_img=epit_img))
+        st.image(func.get_artefacts(epit_img))
