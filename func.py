@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 
-def get_area(image):
-    original_img = np.array(image.convert('RGB'))
+def get_area(epit_img):
+    original_img = np.array(epit_img.convert('RGB'))
     # Convert the image to the HSV color space
     hsv = cv2.cvtColor(original_img, cv2.COLOR_RGB2HSV)
     # Define the lower and upper bounds for the red color range
@@ -20,8 +20,8 @@ def get_area(image):
     return k_pixels
 
 
-def get_contours(image):
-    original_img = np.array(image.convert('RGB'))
+def get_contours(epit_img):
+    original_img = np.array(epit_img.convert('RGB'))
     # Create a mask for the red color range
     hsv = cv2.cvtColor(original_img, cv2.COLOR_RGB2HSV)
     lower_red_1 = np.array([0, 80, 15])
@@ -52,8 +52,8 @@ def get_contours(image):
     return original_img
 
 
-def get_artefacts(image):
-    original_img = np.array(image.convert('RGB'))
+def get_artefacts(epit_img):
+    original_img = np.array(epit_img.convert('RGB'))
     mean_shift = cv2.pyrMeanShiftFiltering(image, 32, 64, 2)
     gray_mean_shift = cv2.cvtColor(mean_shift, cv2.COLOR_BGR2GRAY)
     _, bin_mean_shift = cv2.threshold(gray_mean_shift, 64, 255, cv2.THRESH_BINARY)
